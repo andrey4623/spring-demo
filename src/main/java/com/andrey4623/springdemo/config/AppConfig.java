@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 @Configuration
 @EnableWebMvc
 @ConfigurationProperties
-public class Config {
+public class AppConfig {
 
   private String dbDriverClassName;
   private String dbUrl;
