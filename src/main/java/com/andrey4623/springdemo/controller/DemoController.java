@@ -13,30 +13,19 @@ public class DemoController {
 
   @GetMapping(value = "/")
   public String welcome() {
-    String[] requiredRoles = {"ROLE_USER", "ROLE_ADMIN"};
 
-    if (isAuthorized(requiredRoles)) {
+    if (isAuthorized("ROLE_READ_PROFILE")) {
       return "user/welcome";
     } else {
       return "welcome";
     }
   }
 
-  //TODO refactor
-  private boolean isAuthorized(String[] roles) {
+  private boolean isAuthorized(String role) {
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
 
-    boolean authorized = false;
-
-    for (String role : roles) {
-      if (authorities.contains(new SimpleGrantedAuthority(role))) {
-        authorized = true;
-        break;
-      }
-    }
-
-    return authorized;
+    return authorities.contains(new SimpleGrantedAuthority(role));
   }
 
   @GetMapping(value = "/admin")
