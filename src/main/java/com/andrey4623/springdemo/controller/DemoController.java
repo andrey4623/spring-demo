@@ -39,11 +39,6 @@ public class DemoController {
     return authorized;
   }
 
-  @GetMapping(value = "/home")
-  public String userHome() {
-    return "user/welcome";
-  }
-
   @GetMapping(value = "/admin")
   public String adminHome() {
     return "admin/welcome";
