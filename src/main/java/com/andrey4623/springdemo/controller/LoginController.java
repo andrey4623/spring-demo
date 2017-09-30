@@ -34,9 +34,8 @@ public class LoginController {
     return "login";
   }
 
-  // customize the error message
+  // Customize the error message.
   private String getErrorMessage(HttpServletRequest request, String key) {
-
     Exception exception = (Exception) request.getSession().getAttribute(key);
 
     String error = "";

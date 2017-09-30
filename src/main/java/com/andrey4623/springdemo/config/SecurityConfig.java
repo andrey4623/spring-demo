@@ -1,6 +1,5 @@
 package com.andrey4623.springdemo.config;
 
-
 import com.andrey4623.springdemo.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -48,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     return authProvider;
   }
 
-  Md5PasswordEncoder encoder() {
+  private Md5PasswordEncoder encoder() {
     return new Md5PasswordEncoder();
   }
 

@@ -21,7 +21,6 @@ public class ErrorsController {
   @RequestMapping(value = "/403", method = RequestMethod.GET)
   public String accesssDenied(ModelMap model) {
 
-    // check if user is login
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     if (!(auth instanceof AnonymousAuthenticationToken)) {
       UserDetails userDetail = (UserDetails) auth.getPrincipal();

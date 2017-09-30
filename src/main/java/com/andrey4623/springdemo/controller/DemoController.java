@@ -13,7 +13,6 @@ public class DemoController {
 
   @GetMapping(value = "/")
   public String welcome() {
-
     if (isAuthorized("ROLE_READ_PROFILE")) {
       return "user/welcome";
     } else {
